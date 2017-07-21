@@ -77,7 +77,7 @@ class XmlStreamer {
       default:
         switch (ch) {
           case XmlChar.LT:
-            if (event.state != null && event.value.trim().isNotEmpty) {
+            if (event.state != null && event.value./*trim(). support a space text*/isNotEmpty) {
               _addElement(event);
             }
             event = _createXmlEvent(XmlState.Open);
