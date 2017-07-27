@@ -140,6 +140,8 @@ class XmlStreamer {
           case XmlChar.DOUBLE_QUOTES:
             if (event.state == XmlState.Attribute) {
               event = _quotes_handling(ch, event);
+            } else if (event.state == XmlState.Text /*support '"' in text node*/) {
+              event = addCharToValue(event, ch);
             }
             break;
           case XmlChar.NEWLINE:
