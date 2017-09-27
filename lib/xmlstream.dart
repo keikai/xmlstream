@@ -1,6 +1,7 @@
 library xml_stream;
 
 import 'dart:async';
+import 'dart:convert';
 import 'package:event_stream/event_stream.dart';
 
 part 'src/xml_char.dart';

@@ -36,7 +36,7 @@ class XmlStreamer {
     } else {
       StreamSubscription controller;
       var onData = (List<int> data) {
-        var chars_raw = new String.fromCharCodes(data).split("");
+        var chars_raw = UTF8.decode(data).split("");
         for (var ch in chars_raw) {
           event = _processRawChar(ch, prev, event);
           prev = ch;
