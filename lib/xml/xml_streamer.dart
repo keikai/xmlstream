@@ -90,8 +90,14 @@ class XmlStreamer {
               event = _createXmlEventAndCheck(event, XmlState.Closed);
               event.value = _open_value;
             }
-            _addElement(event);
-            event = _createXmlEvent(XmlState.Text);
+
+            // allow attribute value contains ">"
+            if (event.state != XmlState.Attribute) {
+              _addElement(event);
+              event = _createXmlEvent(XmlState.Text);
+            } else {
+              event = addCharToValue(event, ch);
+            }
             break;
           case XmlChar.SLASH:
             if (event.state != XmlState.Open) {
