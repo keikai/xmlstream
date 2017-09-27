@@ -92,7 +92,7 @@ class XmlStreamer {
             }
 
             // allow attribute value contains ">"
-            if (event.state != XmlState.Attribute) {
+            if (event.state != XmlState.Attribute || event.key.isEmpty) {
               _addElement(event);
               event = _createXmlEvent(XmlState.Text);
             } else {
