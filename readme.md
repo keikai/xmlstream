@@ -81,3 +81,8 @@ It is based upon the SAX's and StAX's principles from Java.
  
 If you found a bug, just create a new issue or even better fork and issue a
 pull request with you fix.
+
+
+## Who Uses
+
+* [Keikai](https://keikai.io) - a sophisticated spreadsheet for big data
